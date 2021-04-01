@@ -11,20 +11,14 @@
             </h1>
         </div>   
         
-        <div>
-            <h2>
-                <a href="">first test</a>
-            </h2>
-            <p>createdAt: 04.01.2021, 14:05</p>
-            <p>can u c me?</p>
-        </div>
-
-        <div>
-            <h2>
-                <a href="">second test</a>
-            </h2>
-            <p>createdAt: 04.01.2021, 14:06</p>
-            <p>nice to meet u</p>
-        </div>
+        {% for post in posts %}
+            <div>
+                <p>published: {{ post.created_date }}</p>
+                <h1>
+                    <a href="">{{ post.title }}</a>
+                </h1>
+                <p>{{ post.text|linebreaksbr }}</p>
+            </div>
+        {% endfor %}
     </body>
 </html>
