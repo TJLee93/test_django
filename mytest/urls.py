@@ -33,9 +33,13 @@ class UserViewSet(viewsets.ModelViewSet):
 router = routers.DefaultRouter();
 router.register(r'users', UserViewSet);
 
-app_name = 'rest_framework';
+# urlpatterns = [
+#     path('admin/', admin.site.urls),
+#     path('', include('myapp.urls')),
+#     path('', include('router.urls')),
+#     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+# ];
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('myapp.urls', 'router.urls')),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('', include(router.urls)),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
