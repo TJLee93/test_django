@@ -25,7 +25,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         fields = ['url', 'username', 'email', 'is_staff'];
 
 # ViewSets define the view behavior.
-class UserViewSets(viewsets.ModelViewSet):
+class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all();
     serializer_class = UserSerializer;
 
@@ -36,5 +36,5 @@ router.register(r'users', UserViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('myapp.urls', 'router.urls')),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    path('api-auth/', include('rest_framework.urls', app_name='rest_framework'))
 ]
